@@ -1,0 +1,11 @@
+@font-face {
+  font-family: "Inter";
+  src: local("Inter"), url(./font/inter-variable.woff2) format("woff2");
+}
+
+:root {
+  --ff: "Inter", sans-serif;
+  --f-heading: 600 1.5rem/2.25rem var(--ff);
+  --f-body: 400 0.875rem/1.3125rem var(--ff);
+  --f-body-bold: 700 0.875rem/1.3125rem var(--ff);
+}
