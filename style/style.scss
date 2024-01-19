@@ -1,0 +1,113 @@
+@use "colors" as *;
+@use "font" as *;
+
+*,
+*:after,
+*:before {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+body {
+  min-height: 100dvh;
+  display: grid;
+  grid-template-rows: [main-start] 1fr [main-end footer-start] auto [footer-end];
+  font: var(--f-body);
+  color: var(--clr-text);
+  background: var(--clr-body);
+}
+h1 {
+  display: block;
+}
+main {
+  grid-row: main;
+  display: grid;
+  place-items: center;
+}
+.card-wrapper {
+  width: min(100% - 3rem, 24rem);
+  container: card / inline-size;
+}
+.card {
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  background: var(--clr-surface);
+  color: var(--clr-text);
+  border-radius: 0.75rem;
+  &__img {
+    width: 5.5rem;
+    aspect-ratio: 1/1;
+    border-radius: 50%;
+    margin-bottom: 0.5rem;
+  }
+  &__heading {
+    margin-bottom: 0.5rem;
+  }
+  &__name {
+    text-align: center;
+    text-wrap: pretty;
+    font: var(--f-heading);
+  }
+  &__location {
+    display: flex;
+    text-align: center;
+    text-wrap: pretty;
+    font: var(--f-body-bold);
+    color: var(--clr-accent);
+  }
+  &__quote {
+    margin-bottom: 0.5rem;
+    quotes: '"' '"';
+    font: var(--f-body);
+    text-align: center;
+    text-wrap: pretty;
+  }
+  &__link {
+    width: 100%;
+    min-height: 2.813rem;
+    padding: 0.75rem;
+    border-radius: 0.5rem;
+    display: grid;
+    place-items: center;
+    text-align: center;
+    text-wrap: pretty;
+    text-decoration: none;
+    background-color: var(--clr-button);
+    color: var(--clr-text);
+    font: var(--f-body-bold);
+    transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
+    &:hover {
+      background-color: var(--clr-accent);
+      color: var(--clr-body);
+    }
+    &:active {
+      background-color: var(--clr-accent);
+    }
+  }
+}
+@container card (width > 22rem) {
+  .card {
+    padding: 2.5rem;
+  }
+}
+.attribution {
+  padding: 1rem;
+  display: grid;
+  place-items: center;
+  text-align: center;
+  text-wrap: pretty;
+  &__link {
+    color: var(--clr-accent);
+    font: var(--f-body);
+    text-decoration: none;
+    &:hover {
+      text-decoration: underline;
+    }
+    &:active {
+      text-decoration: underline;
+    }
+  }
+}
